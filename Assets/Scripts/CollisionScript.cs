@@ -16,6 +16,8 @@ public class CollisionScript : MonoBehaviour
     public float time;
     public Text timeTxt;
 
+    public GameObject partPrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +60,7 @@ public class CollisionScript : MonoBehaviour
             scoreTxt.text = "Score: " + score;
 
             Destroy(other.gameObject);
+            Instantiate(partPrefab, other.gameObject.transform.position, Quaternion.identity);
         }
 
         if (other.gameObject.tag == "Water")
